@@ -6,7 +6,7 @@ Release:	1
 License:	GPL
 Group:		Applications/Communications
 Source0:	http://ac2i.tzo.com/dctc/%{name}-%{version}.tar.gz
-# Source0-md5:	982e256537c1ac32c26c7fad67136f87
+# Source0-md5:	ddad10cdebf1ac113e3343c1f83696a8
 URL:		http://ac2i.tzo.com/dctc/
 #BuildRequires:	autoconf
 #BuildRequires:	automake
