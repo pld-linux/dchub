@@ -1,9 +1,12 @@
 diff -Nur old/dchub.init.in new/dchub.init.in
 --- old/dchub.init.in	2003-10-19 15:32:52.000000000 +0000
-+++ new/dchub.init.in	2003-12-13 02:04:37.000000000 +0000
-@@ -37,38 +37,24 @@
++++ new/dchub.init.in	2003-12-13 13:57:03.000000000 +0000
+@@ -35,40 +35,26 @@
+ DCHUB_XMLCONFFILE=$DCHUB_DBDIR/conf.xml
+ DCHUB_XMLUSERFILE=$DCHUB_DBDIR/users.xml
  DCHUB_HUBPASSFILE=$DCHUB_DBDIR/dchub.hubpasswd
- DCHUB_CRCFILE=$DCHUB_DBDIR/dchub.crc
+-DCHUB_CRCFILE=$DCHUB_DBDIR/dchub.crc
++DCHUB_CRCFILE=@DCHUB_CRCDIR@/dchub.crc
  DCHUB_SCRIPTDIR=$DCHUB_LIBEXECDIR/scripts
 +DCHUB_PLUGINSDIR=$DCHUB_LIBEXECDIR/plugins
  DCHUB_MAINSCRIPT=main.pl
@@ -53,3 +56,12 @@ diff -Nur old/dchub.init.in new/dchub.init.in
  
  [ -x "$DCHUB" ] || exit 0
  [ -d "$DCHUB_DBDIR" ] || exit 0
+@@ -78,7 +64,7 @@
+ do_init_db() {
+ 	if [ ! -f $DCHUB_XMLCONFFILE -a ! -f $DCHUB_XMLUSERFILE -a ! -f $DCHUB_HUBPASSFILE -a ! -f $DCHUB_CRCFILE ]; then
+ 		echo -n $"Initializing the database: " 
+-		if $DCHUB --init $OPTIONS >&/dev/null; then
++		if $DCHUB --init $OPTIONS >/dev/null; then
+ 			success $"DcHub database creation"
+ 			echo
+ 			echo $"You can now log into the hub with the account MASTER"
