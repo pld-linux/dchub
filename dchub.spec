@@ -1,7 +1,7 @@
 Summary:	Direct Connect Hub
 Summary(pl):	Serwer Direct Connect
 Name:		dchub
-Version:	0.4.4
+Version:	0.4.5
 Release:	1
 License:	GPL
 Group:		Applications/Communications
