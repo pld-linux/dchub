@@ -1,12 +1,12 @@
 Summary:	Direct Connect Hub
 Summary(pl):	Serwer Direct Connect
 Name:		dchub
-Version:	0.4.5
+Version:	0.5.0
 Release:	1
 License:	GPL
 Group:		Applications/Communications
 Source0:	http://ac2i.tzo.com/dctc/%{name}-%{version}.tar.gz
-# Source0-md5:	ddad10cdebf1ac113e3343c1f83696a8
+# Source0-md5:	bc03737a91e39b7f9d2c0a8abbbac101
 URL:		http://ac2i.tzo.com/dctc/
 #BuildRequires:	autoconf
 #BuildRequires:	automake
