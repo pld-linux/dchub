@@ -2,16 +2,16 @@ Summary:	Direct Connect Hub
 Summary(pl):	Serwer Direct Connect
 Name:		dchub
 Version:	0.5.2
-Release:	3
+Release:	4
 License:	GPL
 Group:		Applications/Communications
-Source0:	http://ac2i.tzo.com/dctc/%{name}-%{version}.tar.gz
+Source0:	http://ac2i.homelinux.com/dctc/%{name}-%{version}.tar.gz
 # Source0-md5:	673a43cde95bce2c2acba2cfab83d527
 Patch0:		%{name}-configdir.patch
 Patch1:		%{name}-init.patch
 Patch2:		%{name}-crcdir.patch
 Patch3:		%{name}-pic.patch
-URL:		http://ac2i.tzo.com/dctc/
+URL:		http://ac2i.homelinux.com/dctc/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	glib2-devel >= 2.0
@@ -20,6 +20,7 @@ BuildRequires:	libxml2-devel
 BuildRequires:	perl-devel
 BuildRequires:	python-devel
 BuildRequires:	pkgconfig
+Requires(post,preun):	/sbin/chkconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -60,13 +61,21 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/plugins/*.h
 rm -rf $RPM_BUILD_ROOT%{_libdir}/%{name}/scripts/po
 
 %post
+if [ "$1" = "1" ]; then
+    /sbin/chkconfig --add dchub
+fi
 if [ -f /var/lock/subsys/dchub ]; then
         /etc/rc.d/init.d/dchub restart >&2
+else
+echo "Run /etc/rc.d/init.d/dchub start to start dchub daemon"
 fi
 
 %preun                                                                          
-if [ -f /var/lock/subsys/dchub ]; then
+if [ "$1" = "0" ]; then
+    /sbin/chkconfig --del dchub
+    if [ -f /var/lock/subsys/dchub ]; then
 	/etc/rc.d/init.d/dchub stop >&2
+    fi
 fi
 
 %clean
