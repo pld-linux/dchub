@@ -1,0 +1,14 @@
+--- dchub-0.5.2/plugin/Makefile.am.orig	2003-11-28 15:29:40.000000000 +0000
++++ dchub-0.5.2/plugin/Makefile.am	2003-12-18 21:14:53.000000000 +0000
+@@ -6,9 +6,9 @@
+ SUFFIXES = .c .o .so
+ 
+ .c.o:
+-	$(CC) -c $(CFLAGS) $(CPPFLAGS) $(GLIB_CFLAGS) -o $@ $<
++	$(CC) -fPIC -c $(CFLAGS) $(CPPFLAGS) $(GLIB_CFLAGS) -o $@ $<
+ .o.so:
+-	$(CC) -fPIC -shared $(CFLAGS) $(GLIB_CFLAGS) $< -o $@
++	$(CC) -shared $(CFLAGS) $(GLIB_CFLAGS) $< -o $@
+ 
+ 
+ pluginsdir = $(libexecdir)/dchub/plugins
