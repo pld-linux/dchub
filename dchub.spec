@@ -62,20 +62,20 @@ rm -rf $RPM_BUILD_ROOT%{_libdir}/%{name}/scripts/po
 
 %post
 if [ "$1" = "1" ]; then
-    /sbin/chkconfig --add dchub
+	/sbin/chkconfig --add dchub
 fi
 if [ -f /var/lock/subsys/dchub ]; then
-        /etc/rc.d/init.d/dchub restart >&2
+	/etc/rc.d/init.d/dchub restart >&2
 else
-echo "Run /etc/rc.d/init.d/dchub start to start dchub daemon"
+	echo "Run /etc/rc.d/init.d/dchub start to start dchub daemon"
 fi
 
-%preun                                                                          
+%preun
 if [ "$1" = "0" ]; then
-    /sbin/chkconfig --del dchub
-    if [ -f /var/lock/subsys/dchub ]; then
-	/etc/rc.d/init.d/dchub stop >&2
-    fi
+	/sbin/chkconfig --del dchub
+	if [ -f /var/lock/subsys/dchub ]; then
+		/etc/rc.d/init.d/dchub stop >&2
+	fi
 fi
 
 %clean
