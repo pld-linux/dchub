@@ -12,6 +12,7 @@ URL:		http://ac2i.tzo.com/dctc/
 #BuildRequires:	automake
 BuildRequires:	glib-devel
 BuildRequires:	python-devel
+BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
