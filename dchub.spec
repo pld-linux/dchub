@@ -2,7 +2,7 @@ Summary:	Direct Connect Hub
 Summary(pl):	Serwer Direct Connect
 Name:		dchub
 Version:	0.5.2
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Communications
 Source0:	http://ac2i.tzo.com/dctc/%{name}-%{version}.tar.gz
@@ -10,10 +10,11 @@ Source0:	http://ac2i.tzo.com/dctc/%{name}-%{version}.tar.gz
 Patch0:		%{name}-configdir.patch
 Patch1:		%{name}-init.patch
 Patch2:		%{name}-crcdir.patch
+Patch3:		%{name}-pic.patch
 URL:		http://ac2i.tzo.com/dctc/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	glib2-devel
+BuildRequires:	glib2-devel >= 2.0
 BuildRequires:	python-devel
 BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -29,6 +30,7 @@ dchub jest hubem sieci direct connect slu¿±cej do wymiany plików.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 %{__aclocal}
