@@ -20,6 +20,7 @@ BuildRequires:	libxml2-devel
 BuildRequires:	perl-devel
 BuildRequires:	python-devel
 BuildRequires:	pkgconfig
+Requires:	perl-Locale-gettext
 Requires(post,preun):	/sbin/chkconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
