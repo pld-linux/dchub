@@ -1,0 +1,47 @@
+diff -Nur old/dchub.init.in new/dchub.init.in
+--- old/dchub.init.in	2003-10-19 15:32:52.000000000 +0000
++++ new/dchub.init.in	2003-12-13 00:52:30.000000000 +0000
+@@ -43,32 +43,17 @@
+ 
+ OPTIONS="--UID=$DCHUB_UID --conf=$DCHUB_XMLCONFFILE --user=$DCHUB_XMLUSERFILE --hubpasswd=$DCHUB_HUBPASSFILE --crc=$DCHUB_CRCFILE --pscriptdir=$DCHUB_SCRIPTDIR --pscriptinit=$DCHUB_MAINSCRIPT --exprogdir=$DCHUB_EXTPROGDIR --logfile=$DCHUB_LOGFILE"
+ 
+-#
+-# Determine which kind of configuration we're using
+-#
+-system=unknown
+-if [ -f /etc/debian_version ]; then
+-    system=debian
+-elif [ -f /etc/redhat-release ]; then
+-    system=redhat
+-else
+-    echo "$0: Unknown system, please report on http://savannah.nongnu.org/support/?group=dchub" 1>&2
+-    exit 1
+-fi
+-
+-if [ $system = redhat ]; then
+-	# Source function library.
+-    . $initdir/functions
+-
+-	# Source networking configuration.
+-	. /etc/sysconfig/network
+-
+-	# Check that networking is up.
+-	[ ${NETWORKING} = "no" ] && exit 0
+-
+-	# Pull in sysconfig settings
+-	[ -f /etc/sysconfig/dchub ] && . /etc/sysconfig/dchub
+-fi
++# Source function library.
++. $initdir/functions
++
++# Source networking configuration.
++. /etc/sysconfig/network
++
++# Check that networking is up.
++[ ${NETWORKING} = "no" ] && exit 0
++
++# Pull in sysconfig settings
++[ -f /etc/sysconfig/dchub ] && . /etc/sysconfig/dchub
+ 
+ [ -x "$DCHUB" ] || exit 0
+ [ -d "$DCHUB_DBDIR" ] || exit 0
