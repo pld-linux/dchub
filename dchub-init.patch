@@ -1,9 +1,17 @@
 diff -Nur old/dchub.init.in new/dchub.init.in
 --- old/dchub.init.in	2003-10-19 15:32:52.000000000 +0000
-+++ new/dchub.init.in	2003-12-13 00:52:30.000000000 +0000
-@@ -43,32 +43,17 @@
++++ new/dchub.init.in	2003-12-13 02:04:37.000000000 +0000
+@@ -37,38 +37,24 @@
+ DCHUB_HUBPASSFILE=$DCHUB_DBDIR/dchub.hubpasswd
+ DCHUB_CRCFILE=$DCHUB_DBDIR/dchub.crc
+ DCHUB_SCRIPTDIR=$DCHUB_LIBEXECDIR/scripts
++DCHUB_PLUGINSDIR=$DCHUB_LIBEXECDIR/plugins
+ DCHUB_MAINSCRIPT=main.pl
+ DCHUB_EXTPROGDIR=$DCHUB_LIBEXECDIR/extprog
+ DCHUB_TOOLSDIR=$DCHUB_LIBEXECDIR/tools
  
- OPTIONS="--UID=$DCHUB_UID --conf=$DCHUB_XMLCONFFILE --user=$DCHUB_XMLUSERFILE --hubpasswd=$DCHUB_HUBPASSFILE --crc=$DCHUB_CRCFILE --pscriptdir=$DCHUB_SCRIPTDIR --pscriptinit=$DCHUB_MAINSCRIPT --exprogdir=$DCHUB_EXTPROGDIR --logfile=$DCHUB_LOGFILE"
+-OPTIONS="--UID=$DCHUB_UID --conf=$DCHUB_XMLCONFFILE --user=$DCHUB_XMLUSERFILE --hubpasswd=$DCHUB_HUBPASSFILE --crc=$DCHUB_CRCFILE --pscriptdir=$DCHUB_SCRIPTDIR --pscriptinit=$DCHUB_MAINSCRIPT --exprogdir=$DCHUB_EXTPROGDIR --logfile=$DCHUB_LOGFILE"
++OPTIONS="--UID=$DCHUB_UID --conf=$DCHUB_XMLCONFFILE --user=$DCHUB_XMLUSERFILE --hubpasswd=$DCHUB_HUBPASSFILE --crc=$DCHUB_CRCFILE --pscriptdir=$DCHUB_SCRIPTDIR --linkdir=$DCHUB_PLUGINSDIR --pscriptinit=$DCHUB_MAINSCRIPT --exprogdir=$DCHUB_EXTPROGDIR --logfile=$DCHUB_LOGFILE"
  
 -#
 -# Determine which kind of configuration we're using
