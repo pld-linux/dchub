@@ -1,12 +1,12 @@
 Summary:	Direct Connect Hub
 Summary(pl):	Serwer Direct Connect
 Name:		dchub
-Version:	0.4.0
+Version:	0.4.4
 Release:	1
 License:	GPL
 Group:		Applications/Communications
 Source0:	http://ac2i.tzo.com/dctc/%{name}-%{version}.tar.gz
-# Source0-md5:	b815dbaded06c0dfc9b70142d296a6cb
+# Source0-md5:	982e256537c1ac32c26c7fad67136f87
 URL:		http://ac2i.tzo.com/dctc/
 #BuildRequires:	autoconf
 #BuildRequires:	automake
@@ -29,7 +29,9 @@ protoko³u.
 %setup -q
 
 %build
-./configure --prefix=/usr
+
+%configure2_13
+
 %{__make}
 
 %install
@@ -43,5 +45,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-#%doc KNOWN_BUGS TODO README ChangeLog Documentation/* Documentation/*/*
+%doc AUTHORS ChangeLog NEWS README TODO Documentation/*
 %attr(755,root,root) %{_bindir}/*
+%{_libdir}/%{name}/*
