@@ -1,0 +1,37 @@
+diff -Nur old/Makefile.am new/Makefile.am
+--- old/Makefile.am	2003-10-11 11:58:24.000000000 +0000
++++ new/Makefile.am	2003-12-13 14:01:24.000000000 +0000
+@@ -11,7 +11,8 @@
+ 	-e 's,@libexecdir\@,$(libexecdir),g' \
+ 	-e 's,@VERSION\@,$(VERSION),g' \
+ 	-e 's,@INITDIR\@,$(INITDIR),g' \
+-	-e 's,@DCHUB_DBDIR\@,$(DCHUB_DBDIR),g'
++	-e 's,@DCHUB_DBDIR\@,$(DCHUB_DBDIR),g' \
++	-e 's,@DCHUB_CRCDIR\@,$(DCHUB_CRCDIR),g'
+ 
+ dchub.spec: Makefile
+ 	$(edit) $(srcdir)/dchub.spec.in >dchub.spec
+diff -Nur old/src/main.c new/src/main.c
+--- old/src/main.c	2003-11-22 13:47:08.000000000 +0000
++++ new/src/main.c	2003-12-13 13:39:27.000000000 +0000
+@@ -1224,7 +1224,7 @@
+ 	if(ed2kdb_file==NULL)
+ 	{
+ 		GString* default_ed2kdb_filename=g_string_new("");
+-		g_string_sprintf(default_ed2kdb_filename,"%s/%s",DCHUB_DBDIR,"dchub.crc");
++		g_string_sprintf(default_ed2kdb_filename,"%s/%s",DCHUB_CRCDIR,"dchub.crc");
+ 		ed2kdb_file=strdup(default_ed2kdb_filename->str);
+ 		g_string_free(default_ed2kdb_filename, TRUE);
+ 	}
+diff -Nur old/src/Makefile.am new/src/Makefile.am
+--- old/src/Makefile.am	2003-11-28 14:39:31.000000000 +0000
++++ new/src/Makefile.am	2003-12-13 13:39:56.000000000 +0000
+@@ -1,7 +1,7 @@
+ # $Id$
+ INCLUDES = $(GLIB_CFLAGS) $(XML_CFLAGS) $(perl_cflags) -DWITH_PERL
+ 
+-CPPFLAGS = -DDCHUB_DBDIR=\"$(DCHUB_DBDIR)\" -DDCHUB_TEMPLATEDIR=\"$(DCHUB_TEMPLATEDIR)\" @CPPFLAGS@
++CPPFLAGS = -DDCHUB_CRCDIR=\"$(DCHUB_CRCDIR)\" -DDCHUB_DBDIR=\"$(DCHUB_DBDIR)\" -DDCHUB_TEMPLATEDIR=\"$(DCHUB_TEMPLATEDIR)\" @CPPFLAGS@
+ 
+ DISTCLEANFILES = *~
+ EXTRA_DIST = inet_aton.c FILE_DESCRIPTION dchub.dtd users.xml.in conf.xml.in
