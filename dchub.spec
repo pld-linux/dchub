@@ -40,7 +40,7 @@ dchub jest hubem sieci direct connect slu¿±cej do wymiany plików.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d ${RPM_BUILD_ROOT}/{%{_sysconfdir}/{%{name},rc.d/init.d},/var/db/%{name}}
+install -d ${RPM_BUILD_ROOT}/{%{_sysconfdir}/{%{name},rc.d/init.d},/var/lib/%{name}}
 install dchub.init $RPM_BUILD_ROOT/%{_sysconfdir}/rc.d/init.d/%{name}
 
 %{__make} install \
@@ -96,4 +96,4 @@ rm -rf $RPM_BUILD_ROOT
 %lang(sv) %{_libdir}/%{name}/scripts/i18n/sv
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/*
-%dir /var/db/%{name}
+%dir /var/lib/%{name}
