@@ -84,8 +84,10 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/%{name}
 %dir %{_libdir}/%{name}/tools
 %attr(755,root,root) %{_libdir}/%{name}/tools/*
+%dir %{_libdir}/%{name}/extprog
 %config(noreplace) %verify(not md5 size mtime) %{_libdir}/%{name}/extprog/AUTOSTART
 %attr(755,root,root) %{_libdir}/%{name}/extprog/[CDPdm]*
+%dir %{_libdir}/%{name}/plugins
 %config(noreplace) %verify(not md5 size mtime) %{_libdir}/%{name}/plugins/AUTOSTART
 %attr(755,root,root) %{_libdir}/%{name}/plugins/*.so
 %dir %{_libdir}/%{name}/scripts
