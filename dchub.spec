@@ -15,6 +15,9 @@ URL:		http://ac2i.tzo.com/dctc/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	glib2-devel >= 2.0
+BuildRequires:	libgcrypt-devel >= 1.1.12
+BuildRequires:	libxml2-devel
+BuildRequires:	perl-devel
 BuildRequires:	python-devel
 BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
