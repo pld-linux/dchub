@@ -9,6 +9,7 @@ Source0:	http://ac2i.tzo.com/dctc/%{name}-%{version}.tar.gz
 # Source0-md5:	673a43cde95bce2c2acba2cfab83d527
 Patch0:		%{name}-configdir.patch
 Patch1:		%{name}-init.patch
+Patch2:		%{name}-crcdir.patch
 URL:		http://ac2i.tzo.com/dctc/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -27,6 +28,7 @@ dchub jest hubem sieci direct connect slu¿±cej do wymiany plików.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 %{__aclocal}
@@ -38,18 +40,13 @@ dchub jest hubem sieci direct connect slu¿±cej do wymiany plików.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d ${RPM_BUILD_ROOT}/%{_sysconfdir}/{%{name},rc.d/init.d}
+install -d ${RPM_BUILD_ROOT}/{%{_sysconfdir}/{%{name},rc.d/init.d},/var/db/%{name}}
 install dchub.init $RPM_BUILD_ROOT/%{_sysconfdir}/rc.d/init.d/%{name}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 install plugin/AUTOSTART $RPM_BUILD_ROOT/%{_libdir}/%{name}/plugins/AUTOSTART
-
-mv $RPM_BUILD_ROOT%{_sysconfdir}/%{name}/conf.xml.in \
-	$RPM_BUILD_ROOT%{_sysconfdir}/%{name}/conf.xml
-mv $RPM_BUILD_ROOT%{_sysconfdir}/%{name}/users.xml.in \
-	$RPM_BUILD_ROOT%{_sysconfdir}/%{name}/users.xml
 
 # delete unnecesary files
 rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/plugins/Makefile
@@ -78,7 +75,6 @@ rm -rf $RPM_BUILD_ROOT
 %lang(fr) %doc Documentation/*.fr
 %lang(nl) %doc Documentation/*.nl
 %dir %{_sysconfdir}/%{name}
-%config(noreplace) %verify(not md5 size mtime) %{_sysconfdir}/%{name}/*
 %attr(755,root,root) %{_sysconfdir}/rc.d/init.d/%{name}
 %attr(755,root,root) %{_bindir}/*
 %dir %{_libdir}/%{name}
@@ -98,3 +94,6 @@ rm -rf $RPM_BUILD_ROOT
 %lang(fr) %{_libdir}/%{name}/scripts/i18n/fr
 %lang(hu) %{_libdir}/%{name}/scripts/i18n/hu
 %lang(sv) %{_libdir}/%{name}/scripts/i18n/sv
+%dir %{_datadir}/%{name}
+%{_datadir}/%{name}/*
+%dir /var/db/%{name}
