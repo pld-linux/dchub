@@ -10,7 +10,7 @@ Source0:	http://ac2i.tzo.com/dctc/%{name}-%{version}.tar.gz
 URL:		http://ac2i.tzo.com/dctc/
 #BuildRequires:	autoconf
 #BuildRequires:	automake
-BuildRequires:	glib-devel
+BuildRequires:	glib2-devel
 BuildRequires:	python-devel
 BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -30,7 +30,6 @@ protoko³u.
 %setup -q
 
 %build
-
 %configure2_13
 
 %{__make}
@@ -46,6 +45,30 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README TODO Documentation/*
+%doc AUTHORS ChangeLog NEWS README TODO
+%doc Documentation/{Global,commands,configuration_file,ext_prog,hub_cluster.postv0.4.0,plugin,protocol_extension,scripts,user_file}
+%lang(de) %doc Documentation/*.de
+%lang(fr) %doc Documentation/*.fr
+%lang(nl) %doc Documentation/*.nl
 %attr(755,root,root) %{_bindir}/*
-%{_libdir}/%{name}/*
+%dir %{_libdir}/%{name}
+%{_libdir}/%{name}/extprog
+%{_libdir}/%{name}/plugins
+%dir %{_libdir}/%{name}/scripts
+%{_libdir}/%{name}/scripts/*.pl
+%{_libdir}/%{name}/scripts/*.py
+%{_libdir}/%{name}/scripts/*.conf
+%dir %{_libdir}/%{name}/scripts/i18n
+%lang(de) %{_libdir}/%{name}/scripts/i18n/de
+%lang(fr) %{_libdir}/%{name}/scripts/i18n/fr
+%lang(hu) %{_libdir}/%{name}/scripts/i18n/hu
+%lang(sv) %{_libdir}/%{name}/scripts/i18n/sv
+# these are installed, are really needed???
+%dir %{_libdir}/%{name}/scripts/po
+%{_libdir}/%{name}/scripts/po/*.pl
+%{_libdir}/%{name}/scripts/po/*.sh
+%{_libdir}/%{name}/scripts/po/*.pot
+%lang(de) %{_libdir}/%{name}/scripts/po/de.po
+%lang(fr) %{_libdir}/%{name}/scripts/po/fr.po
+%lang(hu) %{_libdir}/%{name}/scripts/po/hu.po
+%lang(sv) %{_libdir}/%{name}/scripts/po/sv.po
