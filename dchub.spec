@@ -28,7 +28,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 dchub is a hub of direct connect file sharing network.
 
 %description -l pl
-dchub jest hubem sieci direct connect slu¿±cej do wymiany plików.
+dchub jest hubem sieci direct connect s³u¿±cej do wymiany plików.
 
 %prep
 %setup -q
