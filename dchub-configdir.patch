@@ -1,6 +1,6 @@
 diff -Nur old/configure.in new/configure.in
 --- old/configure.in	2003-11-28 14:57:22.000000000 +0000
-+++ new/configure.in	2003-12-13 13:34:45.000000000 +0000
++++ new/configure.in	2003-12-13 17:03:16.000000000 +0000
 @@ -277,9 +277,13 @@
  AC_SUBST(DCHUB_TEMPLATEDIR)
  
@@ -10,7 +10,7 @@ diff -Nur old/configure.in new/configure.in
  AC_SUBST(DCHUB_DBDIR)
  
 +dnl   Declare the DCHUB_CRCDIR variable
-+DCHUB_CRCDIR="/var/db/dchub"
++DCHUB_CRCDIR="/var/lib/dchub"
 +AC_SUBST(DCHUB_CRCDIR)
 +
  AC_OUTPUT([
