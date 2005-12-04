@@ -18,11 +18,11 @@ BuildRequires:	glib2-devel >= 2.0
 BuildRequires:	libgcrypt-devel >= 1.1.12
 BuildRequires:	libxml2-devel
 BuildRequires:	perl-devel
-BuildRequires:	python-devel
 BuildRequires:	pkgconfig
-Requires:	perl-Locale-gettext
-Requires:	perl(DynaLoader) = %(%{__perl} -MDynaLoader -e 'print DynaLoader->VERSION')
+BuildRequires:	python-devel
 Requires(post,preun):	/sbin/chkconfig
+Requires:	perl(DynaLoader) = %(%{__perl} -MDynaLoader -e 'print DynaLoader->VERSION')
+Requires:	perl-Locale-gettext
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -91,20 +91,20 @@ rm -rf $RPM_BUILD_ROOT
 %lang(fr) %doc Documentation/*.fr
 %lang(nl) %doc Documentation/*.nl
 %dir %{_sysconfdir}/%{name}
-%attr(755,root,root) %{_sysconfdir}/rc.d/init.d/%{name}
+%attr(754,root,root) /etc/rc.d/init.d/%{name}
 %attr(755,root,root) %{_bindir}/*
 %dir %{_libdir}/%{name}
 %dir %{_libdir}/%{name}/tools
 %attr(755,root,root) %{_libdir}/%{name}/tools/*
 %dir %{_libdir}/%{name}/extprog
-%config(noreplace) %verify(not md5 size mtime) %{_libdir}/%{name}/extprog/AUTOSTART
+%config(noreplace) %verify(not md5 mtime size) %{_libdir}/%{name}/extprog/AUTOSTART
 %attr(755,root,root) %{_libdir}/%{name}/extprog/[CDPdm]*
 %dir %{_libdir}/%{name}/plugins
-%config(noreplace) %verify(not md5 size mtime) %{_libdir}/%{name}/plugins/AUTOSTART
+%config(noreplace) %verify(not md5 mtime size) %{_libdir}/%{name}/plugins/AUTOSTART
 %attr(755,root,root) %{_libdir}/%{name}/plugins/*.so
 %dir %{_libdir}/%{name}/scripts
 %attr(755,root,root) %{_libdir}/%{name}/scripts/*.pl
-%config(noreplace) %verify(not md5 size mtime) %{_libdir}/%{name}/scripts/dchub_scripts.conf
+%config(noreplace) %verify(not md5 mtime size) %{_libdir}/%{name}/scripts/dchub_scripts.conf
 %dir %{_libdir}/%{name}/scripts/i18n
 %lang(de) %{_libdir}/%{name}/scripts/i18n/de
 %lang(fr) %{_libdir}/%{name}/scripts/i18n/fr
