@@ -23,6 +23,7 @@ BuildRequires:	python-devel
 Requires(post,preun):	/sbin/chkconfig
 Requires:	perl(DynaLoader) = %(%{__perl} -MDynaLoader -e 'print DynaLoader->VERSION')
 Requires:	perl-Locale-gettext
+Requires:	rc-scripts
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -62,6 +63,9 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/plugins/*.c
 rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/plugins/*.h
 rm -rf $RPM_BUILD_ROOT%{_libdir}/%{name}/scripts/po
 
+%clean
+rm -rf $RPM_BUILD_ROOT
+
 %post
 if [ "$1" = "1" ]; then
 	/sbin/chkconfig --add dchub
@@ -79,9 +83,6 @@ if [ "$1" = "0" ]; then
 		/etc/rc.d/init.d/dchub stop >&2
 	fi
 fi
-
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
