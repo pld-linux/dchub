@@ -49,13 +49,13 @@ dchub jest hubem sieci direct connect s³u¿±cej do wymiany plików.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d ${RPM_BUILD_ROOT}/{%{_sysconfdir}/{%{name},rc.d/init.d},/var/lib/%{name}}
-install dchub.init $RPM_BUILD_ROOT/%{_sysconfdir}/rc.d/init.d/%{name}
+install -d $RPM_BUILD_ROOT{%{_sysconfdir}/%{name},/etc/rc.d/init.d,/var/lib/%{name}}
+install dchub.init $RPM_BUILD_ROOT%{_sysconfdir}/rc.d/init.d/%{name}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install plugin/AUTOSTART $RPM_BUILD_ROOT/%{_libdir}/%{name}/plugins/AUTOSTART
+install plugin/AUTOSTART $RPM_BUILD_ROOT%{_libdir}/%{name}/plugins/AUTOSTART
 
 # delete unnecesary files
 rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/plugins/Makefile
