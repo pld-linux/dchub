@@ -20,6 +20,7 @@ BuildRequires:	libxml2-devel
 BuildRequires:	perl-devel
 BuildRequires:	pkgconfig
 BuildRequires:	python-devel
+BuildRequires:	rpmbuild(macros) >= 1.268
 Requires(post,preun):	/sbin/chkconfig
 Requires:	perl(DynaLoader) = %(%{__perl} -MDynaLoader -e 'print DynaLoader->VERSION')
 Requires:	perl-Locale-gettext
@@ -67,21 +68,13 @@ rm -rf $RPM_BUILD_ROOT%{_libdir}/%{name}/scripts/po
 rm -rf $RPM_BUILD_ROOT
 
 %post
-if [ "$1" = "1" ]; then
-	/sbin/chkconfig --add dchub
-fi
-if [ -f /var/lock/subsys/dchub ]; then
-	/etc/rc.d/init.d/dchub restart >&2
-else
-	echo "Run /etc/rc.d/init.d/dchub start to start dchub daemon"
-fi
+/sbin/chkconfig --add dchub
+%service dchub restart
 
 %preun
 if [ "$1" = "0" ]; then
 	/sbin/chkconfig --del dchub
-	if [ -f /var/lock/subsys/dchub ]; then
-		/etc/rc.d/init.d/dchub stop >&2
-	fi
+	%service dchub stop
 fi
 
 %files
