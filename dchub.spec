@@ -1,5 +1,5 @@
 Summary:	Direct Connect Hub
-Summary(pl.UTF-8):   Serwer Direct Connect
+Summary(pl.UTF-8):	Serwer Direct Connect
 Name:		dchub
 Version:	0.5.2
 Release:	6
