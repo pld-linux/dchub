@@ -1,5 +1,5 @@
 Summary:	Direct Connect Hub
-Summary(pl):	Serwer Direct Connect
+Summary(pl.UTF-8):   Serwer Direct Connect
 Name:		dchub
 Version:	0.5.2
 Release:	6
@@ -30,8 +30,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 dchub is a hub of direct connect file sharing network.
 
-%description -l pl
-dchub jest hubem sieci direct connect s³u¿±cej do wymiany plików.
+%description -l pl.UTF-8
+dchub jest hubem sieci direct connect sÅ‚uÅ¼Ä…cej do wymiany plikÃ³w.
 
 %prep
 %setup -q
