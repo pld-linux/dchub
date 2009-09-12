@@ -2,7 +2,7 @@ Summary:	Direct Connect Hub
 Summary(pl.UTF-8):	Serwer Direct Connect
 Name:		dchub
 Version:	0.5.2
-Release:	6
+Release:	7
 License:	GPL
 Group:		Applications/Communications
 Source0:	http://ac2i.homelinux.com/dctc/%{name}-%{version}.tar.gz
@@ -22,7 +22,6 @@ BuildRequires:	pkgconfig
 BuildRequires:	python-devel
 BuildRequires:	rpmbuild(macros) >= 1.268
 Requires(post,preun):	/sbin/chkconfig
-Requires:	perl(DynaLoader) = %(%{__perl} -MDynaLoader -e 'print DynaLoader->VERSION')
 Requires:	perl-Locale-gettext
 Requires:	rc-scripts
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
