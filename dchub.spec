@@ -14,9 +14,13 @@ Patch3:		%{name}-pic.patch
 URL:		http://ac2i.homelinux.com/dctc/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	gettext-devel
+# for AM_PATH_GLIB macro
+BuildRequires:	glib-devel
 BuildRequires:	glib2-devel >= 2.0
 BuildRequires:	libgcrypt-devel >= 1.1.12
 BuildRequires:	libxml2-devel
+BuildRequires:	openssl-devel
 BuildRequires:	perl-devel
 BuildRequires:	pkgconfig
 BuildRequires:	python-devel
