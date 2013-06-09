@@ -1,0 +1,11 @@
+--- dchub-0.5.2/configure.in~	2013-06-09 20:37:05.851754198 +0200
++++ dchub-0.5.2/configure.in	2013-06-09 20:37:30.785086651 +0200
+@@ -3,7 +3,7 @@
+ 
+ AC_INIT(configure.in)
+ AM_INIT_AUTOMAKE(dchub, 0.5.2)
+-AM_CONFIG_HEADER(config.h)
++AC_CONFIG_HEADERS(config.h)
+ 
+ AM_SANITY_CHECK
+ AC_ISC_POSIX
