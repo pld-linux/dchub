@@ -1,0 +1,44 @@
+--- dchub-0.5.2/extprog/ulist.c~	2003-05-06 18:57:16.000000000 +0200
++++ dchub-0.5.2/extprog/ulist.c	2013-06-11 13:37:26.846548963 +0200
+@@ -363,22 +363,22 @@
+ 		xi->type=0;
+ 		xi->addr=g_string_new("");
+ 		if(addr!=NULL)
+-			g_string_sprintf(xi->addr,addr);
++			g_string_sprintf(xi->addr,"%s",addr);
+ 		xi->client=g_string_new("");
+ 		if(client!=NULL)
+-			g_string_sprintf(xi->client,client);
++			g_string_sprintf(xi->client,"%s",client);
+ 		xi->version=version;
+ 		xi->versionadd=g_string_new("");
+ 		if(versionadd!=NULL)
+-			g_string_sprintf(xi->versionadd,versionadd);
++			g_string_sprintf(xi->versionadd,"%s",versionadd);
+ 		xi->locka=g_string_new("");
+ 		if(lock!=NULL)
+-			g_string_sprintf(xi->locka,lock);
++			g_string_sprintf(xi->locka,"%s",lock);
+ 		xi->lockb=g_string_new("");
+ 		xi->lockc=g_string_new("");
+ 		xi->pka=g_string_new("");
+ 		if(pk!=NULL)
+-			g_string_sprintf(xi->pka,pk);
++			g_string_sprintf(xi->pka,"%s",pk);
+ 		xi->pkb=g_string_new("");
+ 		xi->pkc=g_string_new("");
+ 		xi->has_bzlist=has_bzlist;
+@@ -397,11 +397,11 @@
+ 		xi->need_scan=3;
+ 		xi->d_client=g_string_new("");
+ 		if(d_client!=NULL)
+-			g_string_sprintf(xi->d_client,d_client);
++			g_string_sprintf(xi->d_client,"%s",d_client);
+ 		xi->d_version=d_version;
+ 		xi->d_versionadd=g_string_new("");
+ 		if(d_versionadd!=NULL)
+-			g_string_sprintf(xi->d_versionadd,d_versionadd);
++			g_string_sprintf(xi->d_versionadd,"%s",d_versionadd);
+ 		xi->lock_time=lock_time;
+ 		xi->last_call=time(NULL);
+ 		xi->warnmsg_send=FALSE;

@@ -9,3 +9,11 @@
  
  AM_SANITY_CHECK
  AC_ISC_POSIX
+@@ -13,7 +13,6 @@
+ AC_PROG_CC
+ AC_PROG_INSTALL
+ AC_PROG_LN_S
+-AM_PROG_CC_STDC
+ 
+ dnl dnl check for msgfmt
+ AC_CHECK_PROG(HAVE_MSGFMT,msgfmt,yes,no)
