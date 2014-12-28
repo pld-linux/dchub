@@ -16,7 +16,7 @@ Patch5:		format-security.patch
 URL:		http://ac2i.homelinux.com/dctc/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 # for AM_PATH_GLIB macro
 BuildRequires:	glib-devel
 BuildRequires:	glib2-devel >= 2.0
