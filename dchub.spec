@@ -2,7 +2,7 @@ Summary:	Direct Connect Hub
 Summary(pl.UTF-8):	Serwer Direct Connect
 Name:		dchub
 Version:	0.5.2
-Release:	15
+Release:	16
 License:	GPL
 Group:		Applications/Communications
 Source0:	http://ac2i.homelinux.com/dctc/%{name}-%{version}.tar.gz
