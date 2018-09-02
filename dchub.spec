@@ -2,7 +2,7 @@ Summary:	Direct Connect Hub
 Summary(pl.UTF-8):	Serwer Direct Connect
 Name:		dchub
 Version:	0.5.2
-Release:	17
+Release:	18
 License:	GPL
 Group:		Applications/Communications
 Source0:	http://ac2i.homelinux.com/dctc/%{name}-%{version}.tar.gz
@@ -63,13 +63,13 @@ install dchub.init $RPM_BUILD_ROOT%{_sysconfdir}/rc.d/init.d/%{name}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install plugin/AUTOSTART $RPM_BUILD_ROOT%{_libdir}/%{name}/plugins/AUTOSTART
+install plugin/AUTOSTART $RPM_BUILD_ROOT%{_libexecdir}/%{name}/plugins/AUTOSTART
 
 # delete unnecesary files
-rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/plugins/Makefile
-rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/plugins/*.c
-rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/plugins/*.h
-rm -rf $RPM_BUILD_ROOT%{_libdir}/%{name}/scripts/po
+%{__rm} $RPM_BUILD_ROOT%{_libexecdir}/%{name}/plugins/Makefile
+%{__rm} $RPM_BUILD_ROOT%{_libexecdir}/%{name}/plugins/*.c
+%{__rm} $RPM_BUILD_ROOT%{_libexecdir}/%{name}/plugins/*.h
+%{__rm} -r $RPM_BUILD_ROOT%{_libexecdir}/%{name}/scripts/po
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -94,23 +94,23 @@ fi
 %dir %{_sysconfdir}/%{name}
 %attr(754,root,root) /etc/rc.d/init.d/%{name}
 %attr(755,root,root) %{_bindir}/*
-%dir %{_libdir}/%{name}
-%dir %{_libdir}/%{name}/tools
-%attr(755,root,root) %{_libdir}/%{name}/tools/*
-%dir %{_libdir}/%{name}/extprog
-%config(noreplace) %verify(not md5 mtime size) %{_libdir}/%{name}/extprog/AUTOSTART
-%attr(755,root,root) %{_libdir}/%{name}/extprog/[CDPdm]*
-%dir %{_libdir}/%{name}/plugins
-%config(noreplace) %verify(not md5 mtime size) %{_libdir}/%{name}/plugins/AUTOSTART
-%attr(755,root,root) %{_libdir}/%{name}/plugins/*.so
-%dir %{_libdir}/%{name}/scripts
-%attr(755,root,root) %{_libdir}/%{name}/scripts/*.pl
-%config(noreplace) %verify(not md5 mtime size) %{_libdir}/%{name}/scripts/dchub_scripts.conf
-%dir %{_libdir}/%{name}/scripts/i18n
-%lang(de) %{_libdir}/%{name}/scripts/i18n/de
-%lang(fr) %{_libdir}/%{name}/scripts/i18n/fr
-%lang(hu) %{_libdir}/%{name}/scripts/i18n/hu
-%lang(sv) %{_libdir}/%{name}/scripts/i18n/sv
+%dir %{_libexecdir}/%{name}
+%dir %{_libexecdir}/%{name}/tools
+%attr(755,root,root) %{_libexecdir}/%{name}/tools/*
+%dir %{_libexecdir}/%{name}/extprog
+%config(noreplace) %verify(not md5 mtime size) %{_libexecdir}/%{name}/extprog/AUTOSTART
+%attr(755,root,root) %{_libexecdir}/%{name}/extprog/[CDPdm]*
+%dir %{_libexecdir}/%{name}/plugins
+%config(noreplace) %verify(not md5 mtime size) %{_libexecdir}/%{name}/plugins/AUTOSTART
+%attr(755,root,root) %{_libexecdir}/%{name}/plugins/*.so
+%dir %{_libexecdir}/%{name}/scripts
+%attr(755,root,root) %{_libexecdir}/%{name}/scripts/*.pl
+%config(noreplace) %verify(not md5 mtime size) %{_libexecdir}/%{name}/scripts/dchub_scripts.conf
+%dir %{_libexecdir}/%{name}/scripts/i18n
+%lang(de) %{_libexecdir}/%{name}/scripts/i18n/de
+%lang(fr) %{_libexecdir}/%{name}/scripts/i18n/fr
+%lang(hu) %{_libexecdir}/%{name}/scripts/i18n/hu
+%lang(sv) %{_libexecdir}/%{name}/scripts/i18n/sv
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/*
 %dir /var/lib/%{name}
