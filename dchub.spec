@@ -2,7 +2,7 @@ Summary:	Direct Connect Hub
 Summary(pl.UTF-8):	Serwer Direct Connect
 Name:		dchub
 Version:	0.5.2
-Release:	18
+Release:	19
 License:	GPL
 Group:		Applications/Communications
 Source0:	http://ac2i.homelinux.com/dctc/%{name}-%{version}.tar.gz
@@ -13,6 +13,7 @@ Patch2:		%{name}-crcdir.patch
 Patch3:		%{name}-pic.patch
 Patch4:		am.patch
 Patch5:		format-security.patch
+Patch6:		trampoline.patch
 URL:		http://ac2i.homelinux.com/dctc/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -46,6 +47,7 @@ dchub jest hubem sieci direct connect służącej do wymiany plików.
 %patch3 -p1
 %patch4 -p1
 %patch5 -p1
+%patch6 -p1
 
 %build
 %{__aclocal}

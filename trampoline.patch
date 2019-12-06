@@ -1,0 +1,32 @@
+--- dchub-0.5.2/src/timed_out_string.c~	2003-11-05 19:03:50.000000000 +0100
++++ dchub-0.5.2/src/timed_out_string.c	2019-12-06 20:13:38.490145493 +0100
+@@ -654,14 +654,6 @@
+ 	return result;
+ }
+ 
+-#ifdef WIN32
+-#define BUG_COMPILE 1
+-#endif
+-#ifdef __APPLE__
+-#define BUG_COMPILE 1
+-#endif
+-
+-#ifdef BUG_COMPILE
+ static unsigned long local_key;
+ 
+ static int list(const time_t timeout, const char *ptr1, const int len1, const char *ptr2, const int len2, void *xtra)
+@@ -675,14 +667,3 @@
+ 	local_key = key;
+ 	scan_all_tos_entry(key, list, NULL);
+ }
+-#else
+-void	gui_ban_list(const unsigned long key)
+-{
+-	int list(const time_t timeout, const char *ptr1, const int len1, const char *ptr2, const int len2, void *xtra)
+-	{
+-		gui_send(key, ptr1, len1, ptr2, len2, 'b');
+-		return(0);
+-	}
+-	scan_all_tos_entry(key, list, NULL);
+-}
+-#endif
