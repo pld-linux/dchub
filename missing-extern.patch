@@ -1,0 +1,11 @@
+--- dchub-0.5.2/src/hub_passwd.h~	2003-02-25 15:43:16.000000000 +0100
++++ dchub-0.5.2/src/hub_passwd.h	2021-05-09 11:57:20.482877978 +0200
+@@ -35,7 +35,7 @@
+ /**************************/
+ /* hub password LMP entry */
+ /**************************/
+-LMP_ENTRY *hp_lmp;
++extern LMP_ENTRY *hp_lmp;
+ 
+ /****************************/
+ /* HUB_PASS_ROW entry_flags */
