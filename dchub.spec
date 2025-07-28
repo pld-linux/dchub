@@ -15,6 +15,7 @@ Patch4:		am.patch
 Patch5:		format-security.patch
 Patch6:		trampoline.patch
 Patch7:		missing-extern.patch
+Patch8:		types.patch
 URL:		http://ac2i.homelinux.com/dctc/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -50,6 +51,7 @@ dchub jest hubem sieci direct connect służącej do wymiany plików.
 %patch -P5 -p1
 %patch -P6 -p1
 %patch -P7 -p1
+%patch -P8 -p1
 
 %build
 %{__aclocal}

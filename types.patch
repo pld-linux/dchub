@@ -1,0 +1,11 @@
+--- dchub-0.5.2/src/he3.c.orig	2003-06-22 08:55:08.000000000 +0200
++++ dchub-0.5.2/src/he3.c	2025-07-28 21:25:11.227344560 +0200
+@@ -622,7 +622,7 @@
+ int main(int argc,char **argv) {
+ 	unsigned char* in;
+ 	GString *out;
+-	int filesize;
++	size_t filesize;
+ 	FILE* foutput=NULL;
+ 	
+ 	progname = base_name (argv[0]);
